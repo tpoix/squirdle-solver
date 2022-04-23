@@ -20,7 +20,10 @@ for pokemon in json_response["results"]:
     req3 = requests.get(species_url)
     json_species = json.loads(req3.content)
     gen = json_species["generation"]["url"][-2]
-    fr_name = json_species["names"][4]["name"]
+    fr_name = json_species["names"][0]["name"]
+    for lang in json_species["names"]:
+        if(lang["language"]["name"] == "fr"):
+            fr_name = lang["name"]
     print(f"{fr_name}")
     output = {
         "name": fr_name,
@@ -60,7 +63,10 @@ for pokemon in json_response["results"]:
     req3 = requests.get(species_url)
     json_species = json.loads(req3.content)
     gen = json_species["generation"]["url"][-2]
-    fr_name = json_species["names"][4]["name"]
+    fr_name = json_species["names"][0]["name"]
+    for lang in json_species["names"]:
+        if(lang["language"]["name"] == "fr"):
+            fr_name = lang["name"]
     print(f"{fr_name}")
     output = {
         "name": fr_name,
